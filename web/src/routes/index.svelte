@@ -2,9 +2,11 @@
   export async function preload({ params }) {
     try {
       // As with the server route, we have acces to params.slug here
-      const res = await this.fetch(`api/x`);
-      const { post } = await res.json();
-      return { post };
+      //   const res1 = await this.fetch(`api/x`);
+      const res = await this.fetch(`api/dgusa_events`);
+      const { dgusa_events } = await res.json();
+      console.log(dgusa_events);
+      return { dgusa_events };
     } catch (err) {
       this.error(500, err);
     }
@@ -12,53 +14,42 @@
 </script>
 
 <script>
-  //   export let post;
-  let text = "abcdefg";
-  let count = 0;
+  import DgusaEvent from "../components/DgusaEvent.svelte";
 
-  function handleClick() {
-    count = count + 1;
-  }
+  export let dgusa_events;
+  let y;
 </script>
 
 <svelte:head>
   <title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<svelte:window bind:scrollY={y} />
 
-<h3>{text.substr(count, 2)}</h3>
+<h1>Rewind</h1>
 
-<button on:click={handleClick}>Click</button>
-
-<p>
-  <strong
-    >Go to <a href="/blog">/blog</a> to see content loaded from
-    <a href="https://www.sanity.io">Sanity</a></strong
-  >
-</p>
+<ul class="stack">
+  {#each dgusa_events as dgusa_event, dgusa_event_index}
+    <li>
+      <DgusaEvent card={dgusa_event} />
+    </li>
+  {/each}
+</ul>
 
 <style>
-  h1,
-  p {
-    text-align: center;
-    margin: 0 auto;
+  .stack {
+    --space: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
-  h1 {
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
+  .stack > * {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  p {
-    margin: 1em auto;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
+  .stack > * + * {
+    margin-top: var(--space);
   }
 </style>

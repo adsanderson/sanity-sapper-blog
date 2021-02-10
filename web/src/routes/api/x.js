@@ -22,7 +22,7 @@ export async function get(req, res) {
         feed.items.filter(item => {
             return item.title.indexOf("Rewind and Rewatch") !== -1;
         }).forEach(item => {
-            console.log(item.title + ':' + item.link)
+            console.log(item.title + ':' + item.link);
 
         });
         res.end(JSON.stringify({}));
