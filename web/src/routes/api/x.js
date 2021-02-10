@@ -27,6 +27,7 @@ export async function get(req, res) {
         });
         res.end(JSON.stringify({}));
     } catch (err) {
+
         res.writeHead(500, {
             'Content-Type': 'application/json'
         });
