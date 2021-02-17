@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/adsanderson/sanity-sapper-blog/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
