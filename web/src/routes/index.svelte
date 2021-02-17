@@ -62,8 +62,9 @@
 
   .content {
     position: fixed;
-    height: 90vh;
+    height: 70vh;
     font-size: 40pt;
-    text-align: right;
+    right: 0px;
+    background-color: burlywood;
   }
 </style>
