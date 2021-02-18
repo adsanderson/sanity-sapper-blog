@@ -18,16 +18,9 @@
     "url": "git+https://github.com/adsanderson/sanity-sapper-blog.git"
   },
   "scripts": {
-    "test": "uvu -r esm __tests__",
-    "test:watch": "watchlist lib __tests__ -- npm test"
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/adsanderson/sanity-sapper-blog/issues"
-  },
-  "devDependencies": {
-    "esm": "^3.2.25",
-    "prettier": "^2.2.1",
-    "uvu": "^0.5.1",
-    "watchlist": "^0.2.3"
   }
 }
